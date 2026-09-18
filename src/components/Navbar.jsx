@@ -155,6 +155,33 @@ export default function Navbar({ activePage }) {
                   Sign out
                 </button>
               </>
+            ) : user ? (
+              // Signed in, but the profile row hasn't loaded / has no role yet.
+              // Still show a signed-in state instead of falling back to "Sign in".
+              <>
+                <span
+                  style={{
+                    color: "#A8A29E",
+                    fontSize: 14,
+                    fontFamily: sans,
+                  }}
+                >
+                  {profile?.full_name || user.email}
+                </span>
+                <button
+                  onClick={handleSignOut}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    color: "#A8A29E",
+                    fontSize: 14,
+                    fontFamily: sans,
+                  }}
+                >
+                  Sign out
+                </button>
+              </>
             ) : (
               <>
                 <button
